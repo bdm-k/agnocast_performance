@@ -6,6 +6,8 @@
 #include "agnocast/agnocast_multi_threaded_executor.hpp"  // MultiThreadedAgnocastExecutor
 #include "agnocast/agnocast_single_threaded_executor.hpp"  // SingleThreadedAgnocastExecutor
 
+#define LOG_EVERY_N 400
+
 using std::placeholders::_1;
 
 static int64_t g_subscriber_count = 0;
@@ -17,7 +19,9 @@ class MinimalSubscriber : public rclcpp::Node
   void callback(
     const agnocast::ipc_shared_ptr<agnocast_sample_interfaces::msg::Int64> & message)
   {
-    RCLCPP_INFO(this->get_logger(), "subscribe message: id=%ld", message->id);
+    if (message->id % LOG_EVERY_N == 0) {
+      RCLCPP_INFO(this->get_logger(), "subscribe message: id=%ld", message->id);
+    }
   }
 
 public:

@@ -1,7 +1,14 @@
+#include <chrono>  // std::chrono::*
 #include "agnocast/agnocast.hpp"
 #include "agnocast_sample_interfaces/msg/int64.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "agnocast/agnocast_ioctl.hpp"  // MAX_PUBLISHER_NUM
+#include "agnocast/agnocast_executor.hpp"  // AgnocastExecutor
+#include "agnocast/agnocast_multi_threaded_executor.hpp"  // MultiThreadedAgnocastExecutor
+#include "agnocast/agnocast_single_threaded_executor.hpp"  // SingleThreadedAgnocastExecutor
+
+#define LOG_EVERY_N 100
+#define TIMER_INTERVAL_MS 100
 
 using namespace std::chrono_literals;
 
@@ -18,11 +25,12 @@ class MinimalPublisher : public rclcpp::Node
   {
     agnocast::ipc_shared_ptr<agnocast_sample_interfaces::msg::Int64> message =
       publisher_->borrow_loaned_message();
-
     message->id = count_;
-
     publisher_->publish(std::move(message));
-    RCLCPP_INFO(this->get_logger(), "publish message: id=%ld", count_++);
+
+    if (++count_ % LOG_EVERY_N == 0) {
+      RCLCPP_INFO(this->get_logger(), "publish message: id=%ld", count_);
+    }
   }
 
 public:
@@ -35,7 +43,8 @@ public:
       agnocast::create_publisher<agnocast_sample_interfaces::msg::Int64>(
         this, "/my_topic_" + std::to_string(topic_id), 10);
 
-    timer_ = this->create_wall_timer(1000ms, std::bind(&MinimalPublisher::timer_callback, this));
+    timer_ = this->create_wall_timer(std::chrono::milliseconds{TIMER_INTERVAL_MS},
+      std::bind(&MinimalPublisher::timer_callback, this));
     timer_->cancel();
 
     g_publisher_count += 1;

@@ -100,8 +100,8 @@ int main(int argc, char * argv[])
     executor->add_node(publishers[i]);
   }
 
-  // Start the timers at staggered intervals
-  auto interval = 1000ms / num_publishers;
+  // Stagger the start time of the timers
+  auto interval = 99us / num_publishers;
   for (size_t i = 0; i < num_publishers; ++i) {
     publishers[i]->reset_timer();
     rclcpp::sleep_for(interval);

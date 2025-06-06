@@ -79,6 +79,13 @@ int main(int argc, char * argv[])
     rclcpp::shutdown();
     return 1;
   }
+  if (params.num_topics >= 16) {
+    std::cerr <<
+      "The num_topics should be less than 16. "
+      "Otherwise, the number of mqueues will exceed the limit.\n";
+    rclcpp::shutdown();
+    return 1;
+  }
 
   std::unique_ptr<agnocast::AgnocastExecutor> executor;
   if (params.use_multithreaded_executor) {

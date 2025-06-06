@@ -73,7 +73,7 @@ int main(int argc, char * argv[])
 
   agnocast::SingleThreadedAgnocastExecutor executor;
 
-  size_t num_publishers = MAX_PUBLISHER_NUM * num_topics;
+  const size_t num_publishers = MAX_PUBLISHER_NUM * num_topics;
   std::vector<std::shared_ptr<MinimalPublisher>> publishers = {};
   for (size_t i = 0; i < num_publishers; ++i) {;
     publishers.push_back(std::make_shared<MinimalPublisher>());

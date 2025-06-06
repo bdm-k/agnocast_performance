@@ -3,6 +3,6 @@
         <env name="LD_PRELOAD" value="libagnocast_heaphook.so:$(env LD_PRELOAD '')" />
         <env name="AGNOCAST_MEMPOOL_SIZE" value="16777216" /> <!-- 16MB-->
         <param name="num_topics" value="1" />
-        <param name="use_multithreaded_executor" value="false" />
+        <param name="use_multithreaded_executor" value="true" />
     </node>
 </launch>

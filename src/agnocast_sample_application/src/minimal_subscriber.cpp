@@ -2,6 +2,9 @@
 #include "agnocast_sample_interfaces/msg/int64.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "agnocast/agnocast_ioctl.hpp"  // MAX_SUBSCRIBER_NUM
+#include "agnocast/agnocast_executor.hpp"  // AgnocastExecutor
+#include "agnocast/agnocast_multi_threaded_executor.hpp"  // MultiThreadedAgnocastExecutor
+#include "agnocast/agnocast_single_threaded_executor.hpp"  // SingleThreadedAgnocastExecutor
 
 using std::placeholders::_1;
 
@@ -34,38 +37,58 @@ public:
   }
 };
 
-size_t get_num_topics()
+struct LaunchParams
+{
+  size_t num_topics;
+  bool use_multithreaded_executor;
+};
+
+LaunchParams get_launch_params()
 {
   rclcpp::Node param_node("param_reader");
+
+  LaunchParams params;
 
   int num_topics = 0;
   param_node.declare_parameter<int>("num_topics", 0);
   param_node.get_parameter("num_topics", num_topics);
+  params.num_topics = static_cast<size_t>(num_topics);
 
-  RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %d", num_topics);
+  param_node.declare_parameter<bool>("use_multithreaded_executor", false);
+  param_node.get_parameter("use_multithreaded_executor", params.use_multithreaded_executor);
 
-  return static_cast<size_t>(num_topics);
+  RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %zu", params.num_topics);
+  RCLCPP_INFO(param_node.get_logger(), params.use_multithreaded_executor
+    ? "Using multi-threaded executor"
+    : "Using single-threaded executor");
+
+  return params;
 }
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
 
-  const size_t num_topics = get_num_topics();
-  if (num_topics == 0) {
-    std::cerr << "Invalid num_topics parameter: " << num_topics << std::endl;
+  const LaunchParams params = get_launch_params();
+  if (params.num_topics == 0) {
+    std::cerr << "The num_topics parameter should not be 0\n";
     rclcpp::shutdown();
     return 1;
   }
 
-  agnocast::SingleThreadedAgnocastExecutor executor;
-
-  const size_t num_subscribers = MAX_SUBSCRIBER_NUM * num_topics;
-  for (size_t i = 0; i < num_subscribers; ++i) {
-    executor.add_node(std::make_shared<MinimalSubscriber>());
+  std::unique_ptr<agnocast::AgnocastExecutor> executor;
+  if (params.use_multithreaded_executor) {
+    executor = std::make_unique<agnocast::MultiThreadedAgnocastExecutor>();
+  } else {
+    executor = std::make_unique<agnocast::SingleThreadedAgnocastExecutor>();
   }
 
-  executor.spin();
+  const size_t num_subscribers = MAX_SUBSCRIBER_NUM * params.num_topics;
+  for (size_t i = 0; i < num_subscribers; ++i) {
+    executor->add_node(std::make_shared<MinimalSubscriber>());
+  }
+
+  executor->spin();
 
   rclcpp::shutdown();
   return 0;

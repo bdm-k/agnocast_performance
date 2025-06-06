@@ -3,9 +3,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "agnocast/agnocast_ioctl.hpp"  // MAX_PUBLISHER_NUM
 
+#define NUM_TOPICS 2
+
 using namespace std::chrono_literals;
 
-static int64_t publisher_count = 0;
+static int64_t g_publisher_count = 0;
 
 class MinimalPublisher : public rclcpp::Node
 {
@@ -27,14 +29,18 @@ class MinimalPublisher : public rclcpp::Node
 
 public:
   explicit MinimalPublisher()
-  : Node("minimal_publisher_" + std::to_string(publisher_count++)), count_(0)
+  : Node("minimal_publisher_" + std::to_string(g_publisher_count)), count_(0)
   {
+    const int64_t topic_id = g_publisher_count / MAX_PUBLISHER_NUM;
+
     publisher_ =
       agnocast::create_publisher<agnocast_sample_interfaces::msg::Int64>(
-        this, "/my_topic", 10);
+        this, "/my_topic_" + std::to_string(topic_id), 10);
 
     timer_ = this->create_wall_timer(1000ms, std::bind(&MinimalPublisher::timer_callback, this));
     timer_->cancel();
+
+    g_publisher_count += 1;
   }
 
   void reset_timer()
@@ -48,15 +54,17 @@ int main(int argc, char * argv[])
   rclcpp::init(argc, argv);
 
   agnocast::SingleThreadedAgnocastExecutor executor;
-  std::shared_ptr<MinimalPublisher> publishers[MAX_PUBLISHER_NUM];
-  for (int64_t i = 0; i < MAX_PUBLISHER_NUM; ++i) {
-    publishers[i] = std::make_shared<MinimalPublisher>();
+
+  constexpr size_t num_publishers = MAX_PUBLISHER_NUM * NUM_TOPICS;
+  std::vector<std::shared_ptr<MinimalPublisher>> publishers = {};
+  for (size_t i = 0; i < num_publishers; ++i) {;
+    publishers.push_back(std::make_shared<MinimalPublisher>());
     executor.add_node(publishers[i]);
   }
 
   // Start the timers at staggered intervals
-  auto interval = 1000ms / MAX_PUBLISHER_NUM;
-  for (int64_t i = 0; i < MAX_PUBLISHER_NUM; ++i) {
+  auto interval = 1000ms / num_publishers;
+  for (size_t i = 0; i < num_publishers; ++i) {
     publishers[i]->reset_timer();
     rclcpp::sleep_for(interval);
   }

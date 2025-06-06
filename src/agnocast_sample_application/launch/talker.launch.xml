@@ -4,5 +4,6 @@
         <env name="AGNOCAST_MEMPOOL_SIZE" value="67108864" />  <!-- 64MB-->
         <param name="num_topics" value="1" />
         <param name="use_multithreaded_executor" value="true" />
+        <param name="timer_interval_ms" value="100" />
     </node>
 </launch>

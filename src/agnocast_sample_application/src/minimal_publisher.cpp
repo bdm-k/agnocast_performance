@@ -8,7 +8,6 @@
 #include "agnocast/agnocast_single_threaded_executor.hpp"  // SingleThreadedAgnocastExecutor
 
 #define LOG_EVERY_N 100
-#define TIMER_INTERVAL_MS 100
 
 using namespace std::chrono_literals;
 
@@ -18,6 +17,7 @@ class MinimalPublisher : public rclcpp::Node
 {
   int64_t count_;
   rclcpp::TimerBase::SharedPtr timer_;
+  int timer_interval_ms_;
   agnocast::Publisher<agnocast_sample_interfaces::msg::Int64>::SharedPtr
     publisher_;
 
@@ -43,7 +43,10 @@ public:
       agnocast::create_publisher<agnocast_sample_interfaces::msg::Int64>(
         this, "/my_topic_" + std::to_string(topic_id), 10);
 
-    timer_ = this->create_wall_timer(std::chrono::milliseconds{TIMER_INTERVAL_MS},
+    declare_parameter<int>("timer_interval_ms", 0);
+    get_parameter("timer_interval_ms", timer_interval_ms_);
+
+    timer_ = this->create_wall_timer(std::chrono::milliseconds{timer_interval_ms_},
       std::bind(&MinimalPublisher::timer_callback, this));
     timer_->cancel();
 
@@ -60,6 +63,7 @@ struct LaunchParams
 {
   size_t num_topics;
   bool use_multithreaded_executor;
+  int timer_interval_ms;
 };
 
 LaunchParams get_launch_params()
@@ -76,10 +80,14 @@ LaunchParams get_launch_params()
   param_node.declare_parameter<bool>("use_multithreaded_executor", false);
   param_node.get_parameter("use_multithreaded_executor", params.use_multithreaded_executor);
 
+  param_node.declare_parameter<int>("timer_interval_ms", 0);
+  param_node.get_parameter("timer_interval_ms", params.timer_interval_ms);
+
   RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %zu", params.num_topics);
   RCLCPP_INFO(param_node.get_logger(), params.use_multithreaded_executor
     ? "Using multi-threaded executor"
     : "Using single-threaded executor");
+  RCLCPP_INFO(param_node.get_logger(), "Using timer_interval_ms: %d", params.timer_interval_ms);
 
   return params;
 }
@@ -90,7 +98,12 @@ int main(int argc, char * argv[])
 
   const LaunchParams params = get_launch_params();
   if (params.num_topics == 0) {
-    std::cerr << "The num_topics parameter should not be 0\n";
+    std::cerr << "The num_topics parameter should be set\n";
+    rclcpp::shutdown();
+    return 1;
+  }
+  if (params.timer_interval_ms == 0) {
+    std::cerr << "The timer_interval_ms parameter should be set\n";
     rclcpp::shutdown();
     return 1;
   }

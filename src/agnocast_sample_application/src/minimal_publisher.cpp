@@ -3,8 +3,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "agnocast/agnocast_ioctl.hpp"  // MAX_PUBLISHER_NUM
 
-#define NUM_TOPICS 2
-
 using namespace std::chrono_literals;
 
 static int64_t g_publisher_count = 0;
@@ -49,13 +47,33 @@ public:
   }
 };
 
+size_t get_num_topics()
+{
+  rclcpp::Node param_node("param_reader");
+
+  int num_topics = 0;
+  param_node.declare_parameter<int>("num_topics", 0);
+  param_node.get_parameter("num_topics", num_topics);
+
+  RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %d", num_topics);
+
+  return static_cast<size_t>(num_topics);
+}
+
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
 
+  const size_t num_topics = get_num_topics();
+  if (num_topics == 0) {
+    std::cerr << "Invalid num_topics parameter: " << num_topics << std::endl;
+    rclcpp::shutdown();
+    return 1;
+  }
+
   agnocast::SingleThreadedAgnocastExecutor executor;
 
-  constexpr size_t num_publishers = MAX_PUBLISHER_NUM * NUM_TOPICS;
+  size_t num_publishers = MAX_PUBLISHER_NUM * num_topics;
   std::vector<std::shared_ptr<MinimalPublisher>> publishers = {};
   for (size_t i = 0; i < num_publishers; ++i) {;
     publishers.push_back(std::make_shared<MinimalPublisher>());

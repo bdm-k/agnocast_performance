@@ -61,6 +61,7 @@ public:
 
 struct LaunchParams
 {
+  int starting_topic_id;
   size_t num_topics;
   bool use_multithreaded_executor;
   int timer_interval_ms;
@@ -71,6 +72,9 @@ LaunchParams get_launch_params()
   rclcpp::Node param_node("param_reader");
 
   LaunchParams params;
+
+  param_node.declare_parameter<int>("starting_topic_id", -1);
+  param_node.get_parameter("starting_topic_id", params.starting_topic_id);
 
   int num_topics = 0;
   param_node.declare_parameter<int>("num_topics", 0);
@@ -83,6 +87,7 @@ LaunchParams get_launch_params()
   param_node.declare_parameter<int>("timer_interval_ms", 0);
   param_node.get_parameter("timer_interval_ms", params.timer_interval_ms);
 
+  RCLCPP_INFO(param_node.get_logger(), "Using starting_topic_id: %d", params.starting_topic_id);
   RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %zu", params.num_topics);
   RCLCPP_INFO(param_node.get_logger(), params.use_multithreaded_executor
     ? "Using multi-threaded executor"
@@ -97,6 +102,11 @@ int main(int argc, char * argv[])
   rclcpp::init(argc, argv);
 
   const LaunchParams params = get_launch_params();
+  if (params.starting_topic_id == -1) {
+    std::cerr << "The starting_topic_id parameter should be set\n";
+    rclcpp::shutdown();
+    return 1;
+  }
   if (params.num_topics == 0) {
     std::cerr << "The num_topics parameter should be set\n";
     rclcpp::shutdown();
@@ -114,6 +124,8 @@ int main(int argc, char * argv[])
   } else {
     executor = std::make_unique<agnocast::SingleThreadedAgnocastExecutor>();
   }
+
+  g_publisher_count = params.starting_topic_id * MAX_PUBLISHER_NUM;
 
   const size_t num_publishers = MAX_PUBLISHER_NUM * params.num_topics;
   std::vector<std::shared_ptr<MinimalPublisher>> publishers = {};

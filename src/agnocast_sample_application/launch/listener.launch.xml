@@ -1,9 +1,0 @@
-<launch>
-    <node pkg="agnocast_sample_application" exec="listener" output="screen">
-        <env name="LD_PRELOAD" value="libagnocast_heaphook.so:$(env LD_PRELOAD '')" />
-        <env name="AGNOCAST_MEMPOOL_SIZE" value="16777216" /> <!-- 16MB-->
-        <param name="starting_topic_id" value="0" />
-        <param name="num_topics" value="1" />
-        <param name="use_multithreaded_executor" value="true" />
-    </node>
-</launch>

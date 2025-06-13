@@ -20,7 +20,7 @@ num_topics = 1
 
 use_multithreaded_executor = True
 
-timer_interval_ms = 100
+timer_interval_ms = 10
 ##############
 
 

@@ -7,7 +7,7 @@
 #include "agnocast/agnocast_multi_threaded_executor.hpp"  // MultiThreadedAgnocastExecutor
 #include "agnocast/agnocast_single_threaded_executor.hpp"  // SingleThreadedAgnocastExecutor
 
-#define LOG_EVERY_N 100
+#define LOG_EVERY_N 1000
 
 using namespace std::chrono_literals;
 

@@ -94,5 +94,93 @@
     "timer_interval_ms": 10,
     "talker_path": "1749779386073.log",
     "listener_path": "1749779387076.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 2,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750121311715.log",
+    "listener_path": "1750121312718.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 3,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750122015155.log",
+    "listener_path": "1750122016158.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 4,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750122208745.log",
+    "listener_path": "1750122209748.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 5,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750122915923.log",
+    "listener_path": "1750122916927.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 6,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750123080686.log",
+    "listener_path": "1750123081690.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 7,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750123242888.log",
+    "listener_path": "1750123243892.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 8,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750123520703.log",
+    "listener_path": "1750123521706.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 9,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750123718643.log",
+    "listener_path": "1750123719646.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 10,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750123876442.log",
+    "listener_path": "1750123877446.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 11,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750124158761.log",
+    "listener_path": "1750124159765.log"
+  },
+  {
+    "composition_pattern": 1,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "talker_path": "1750124430737.log",
+    "listener_path": "1750124431741.log"
   }
 ]

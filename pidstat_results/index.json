@@ -182,5 +182,29 @@
     "timer_interval_ms": 10,
     "talker_path": "1750124430737.log",
     "listener_path": "1750124431741.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 20,
+    "talker_path": "1750208251186.log",
+    "listener_path": "1750208252189.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 40,
+    "talker_path": "1750208560436.log",
+    "listener_path": "1750208561439.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 80,
+    "talker_path": "1750208951709.log",
+    "listener_path": "1750208952713.log"
   }
 ]

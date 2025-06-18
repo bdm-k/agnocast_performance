@@ -12,5 +12,12 @@
     "use_multithreaded_executor": true,
     "timer_interval_ms": 80,
     "listener_record_path": "1750209306115.data"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 2,
+    "use_multithreaded_executor": true,
+    "timer_interval_ms": 10,
+    "listener_record_path": "1750211133866.data"
   }
 ]

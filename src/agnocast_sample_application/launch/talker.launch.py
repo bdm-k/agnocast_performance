@@ -20,6 +20,12 @@ num_topics = 1
 
 use_multithreaded_executor = True
 
+# Thread count parameters take effect only when `use_multithreaded_executor` is
+# set to True. A value of 0 indicates the default, which is half the number of hardware
+# threads (i.e., std::thread::hardware_concurrency() / 2).
+ros2_thread_count = 0
+agnocast_thread_count = 0
+
 timer_interval_ms = 10
 ##############
 
@@ -38,6 +44,8 @@ def generate_launch_description():
                     'starting_topic_id': 0,
                     'num_topics': num_topics,
                     'use_multithreaded_executor': use_multithreaded_executor,
+                    'ros2_thread_count': ros2_thread_count,
+                    'agnocast_thread_count': agnocast_thread_count,
                     'timer_interval_ms': timer_interval_ms,
                 }],
                 additional_env={
@@ -56,6 +64,8 @@ def generate_launch_description():
                     'starting_topic_id': topic_id,
                     'num_topics': 1,
                     'use_multithreaded_executor': use_multithreaded_executor,
+                    'ros2_thread_count': ros2_thread_count,
+                    'agnocast_thread_count': agnocast_thread_count,
                     'timer_interval_ms': timer_interval_ms,
                 }],
                 additional_env={

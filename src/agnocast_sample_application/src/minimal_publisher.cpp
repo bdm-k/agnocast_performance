@@ -64,6 +64,8 @@ struct LaunchParams
   int starting_topic_id;
   size_t num_topics;
   bool use_multithreaded_executor;
+  size_t ros2_thread_count;
+  size_t agnocast_thread_count;
   int timer_interval_ms;
 };
 
@@ -84,6 +86,16 @@ LaunchParams get_launch_params()
   param_node.declare_parameter<bool>("use_multithreaded_executor", false);
   param_node.get_parameter("use_multithreaded_executor", params.use_multithreaded_executor);
 
+  int ros2_thread_count = 0;
+  param_node.declare_parameter<int>("ros2_thread_count", 0);
+  param_node.get_parameter("ros2_thread_count", ros2_thread_count);
+  params.ros2_thread_count = static_cast<size_t>(ros2_thread_count);
+
+  int agnocast_thread_count = 0;
+  param_node.declare_parameter<int>("agnocast_thread_count", 0);
+  param_node.get_parameter("agnocast_thread_count", agnocast_thread_count);
+  params.agnocast_thread_count = static_cast<size_t>(agnocast_thread_count);
+
   param_node.declare_parameter<int>("timer_interval_ms", 0);
   param_node.get_parameter("timer_interval_ms", params.timer_interval_ms);
 
@@ -92,6 +104,16 @@ LaunchParams get_launch_params()
   RCLCPP_INFO(param_node.get_logger(), params.use_multithreaded_executor
     ? "Using multi-threaded executor"
     : "Using single-threaded executor");
+  if (params.use_multithreaded_executor) {
+    RCLCPP_INFO(param_node.get_logger(), "Using ros2_thread_count %zu",
+      params.ros2_thread_count == 0
+        ? std::thread::hardware_concurrency() / 2
+        : params.ros2_thread_count);
+    RCLCPP_INFO(param_node.get_logger(), "Using agnocast_thread_count %zu",
+      params.agnocast_thread_count == 0
+        ? std::thread::hardware_concurrency() / 2
+        : params.agnocast_thread_count);
+  }
   RCLCPP_INFO(param_node.get_logger(), "Using timer_interval_ms: %d", params.timer_interval_ms);
 
   return params;
@@ -120,7 +142,8 @@ int main(int argc, char * argv[])
 
   std::unique_ptr<agnocast::AgnocastExecutor> executor;
   if (params.use_multithreaded_executor) {
-    executor = std::make_unique<agnocast::MultiThreadedAgnocastExecutor>();
+    executor = std::make_unique<agnocast::MultiThreadedAgnocastExecutor>(
+      rclcpp::ExecutorOptions(), params.ros2_thread_count, params.agnocast_thread_count);
   } else {
     executor = std::make_unique<agnocast::SingleThreadedAgnocastExecutor>();
   }

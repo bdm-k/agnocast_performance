@@ -3,6 +3,10 @@
     "composition_pattern": 0,
     "num_topics": 12,
     "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 0,
+    "talker_agnocast_thread_count": 0,
+    "listener_ros2_thread_count": 0,
+    "listener_agnocast_thread_count": 0,
     "timer_interval_ms": 10,
     "listener_record_path": "1750140328867.data"
   },
@@ -10,6 +14,10 @@
     "composition_pattern": 0,
     "num_topics": 12,
     "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 0,
+    "talker_agnocast_thread_count": 0,
+    "listener_ros2_thread_count": 0,
+    "listener_agnocast_thread_count": 0,
     "timer_interval_ms": 80,
     "listener_record_path": "1750209306115.data"
   },
@@ -17,6 +25,10 @@
     "composition_pattern": 0,
     "num_topics": 2,
     "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 0,
+    "talker_agnocast_thread_count": 0,
+    "listener_ros2_thread_count": 0,
+    "listener_agnocast_thread_count": 0,
     "timer_interval_ms": 10,
     "listener_record_path": "1750211133866.data"
   }

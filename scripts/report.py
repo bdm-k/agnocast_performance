@@ -45,6 +45,10 @@ def main():
             f"composition_pattern: {m['composition_pattern']}\n"
             f"num_topics: {m['num_topics']}\n"
             f"use_multithreaded_executor: {m['use_multithreaded_executor']}\n"
+            f"talker_ros2_thread_count: {m['talker_ros2_thread_count']}\n"
+            f"talker_agnocast_thread_count: {m['talker_agnocast_thread_count']}\n"
+            f"listener_ros2_thread_count: {m['listener_ros2_thread_count']}\n"
+            f"listener_agnocast_thread_count: {m['listener_agnocast_thread_count']}\n"
             f"timer_interval_ms: {m['timer_interval_ms']}\n"
         )
 

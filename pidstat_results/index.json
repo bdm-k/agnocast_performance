@@ -310,5 +310,77 @@
     "timer_interval_ms": 80,
     "talker_path": "1750208951709.log",
     "listener_path": "1750208952713.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 11,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 11,
+    "timer_interval_ms": 10,
+    "talker_path": "1750377643274.log",
+    "listener_path": "1750377644277.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 10,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 10,
+    "timer_interval_ms": 10,
+    "talker_path": "1750377885506.log",
+    "listener_path": "1750377886509.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 9,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 9,
+    "timer_interval_ms": 10,
+    "talker_path": "1750378171098.log",
+    "listener_path": "1750378172101.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 8,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 8,
+    "timer_interval_ms": 10,
+    "talker_path": "1750378357263.log",
+    "listener_path": "1750378358266.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 1,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 1,
+    "timer_interval_ms": 10,
+    "talker_path": "1750378672556.log",
+    "listener_path": "1750378673560.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 6,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 6,
+    "timer_interval_ms": 10,
+    "talker_path": "1750378916985.log",
+    "listener_path": "1750378917988.log"
   }
 ]

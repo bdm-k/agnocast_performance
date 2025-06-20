@@ -1,0 +1,245 @@
+Linux 6.5.0-44-generic (npc2408016) 	06/20/2025 	_x86_64_	(22 CPU)
+
+09:00:44 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:45 AM  1000     53694   13.00   58.00    0.00    0.00   71.00     3  listener
+09:00:45 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:45 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:46 AM  1000     53694   10.00   60.00    0.00    0.00   70.00     8  listener
+09:00:46 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:46 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:47 AM  1000     53694    9.00   61.00    0.00    0.00   70.00    16  listener
+09:00:47 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:47 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:48 AM  1000     53694   12.00   57.00    0.00    0.00   69.00     6  listener
+09:00:48 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:48 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:49 AM  1000     53694   15.00   56.00    0.00    0.00   71.00     4  listener
+09:00:49 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:49 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:50 AM  1000     53694   14.00   55.00    0.00    0.00   69.00     4  listener
+09:00:50 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:50 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:51 AM  1000     53694   19.00   51.00    0.00    0.00   70.00     3  listener
+09:00:51 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:51 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:52 AM  1000     53694   18.00   51.00    0.00    0.00   69.00     8  listener
+09:00:52 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:52 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:53 AM  1000     53694   20.00   52.00    0.00    0.00   72.00     1  listener
+09:00:53 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:53 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:54 AM  1000     53694   17.00   54.00    0.00    0.00   71.00     4  listener
+09:00:54 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:54 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:55 AM  1000     53694   18.00   52.00    0.00    0.00   70.00     9  listener
+09:00:55 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:55 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:56 AM  1000     53694   18.00   52.00    0.00    0.00   70.00     1  listener
+09:00:56 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:56 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:57 AM  1000     53694   18.00   53.00    0.00    0.00   71.00    16  listener
+09:00:57 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:57 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:58 AM  1000     53694   19.00   52.00    0.00    0.00   71.00     3  listener
+09:00:58 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:58 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:00:59 AM  1000     53694   17.00   54.00    0.00    0.00   71.00     1  listener
+09:00:59 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:00:59 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:00 AM  1000     53694   19.00   53.00    0.00    0.00   72.00     6  listener
+09:01:00 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:00 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:01 AM  1000     53694   20.00   50.00    0.00    0.00   70.00     6  listener
+09:01:01 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:01 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:02 AM  1000     53694   23.00   46.00    0.00    0.00   69.00     1  listener
+09:01:02 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:02 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:03 AM  1000     53694   23.00   47.00    0.00    0.00   70.00     3  listener
+09:01:03 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:03 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:04 AM  1000     53694   20.00   50.00    0.00    0.00   70.00     3  listener
+09:01:04 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:04 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:05 AM  1000     53694   17.00   54.00    0.00    0.00   71.00     2  listener
+09:01:05 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:05 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:06 AM  1000     53694   20.00   50.00    0.00    0.00   70.00     3  listener
+09:01:06 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:06 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:07 AM  1000     53694   21.00   50.00    0.00    0.00   71.00     3  listener
+09:01:07 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:07 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:08 AM  1000     53694   17.00   52.00    0.00    0.00   69.00     8  listener
+09:01:08 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:08 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:09 AM  1000     53694   17.00   53.00    0.00    0.00   70.00     1  listener
+09:01:09 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:09 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:10 AM  1000     53694   22.00   48.00    0.00    0.00   70.00    14  listener
+09:01:10 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:10 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:11 AM  1000     53694   20.00   50.00    0.00    0.00   70.00    19  listener
+09:01:11 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:11 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:12 AM  1000     53694   20.00   50.00    0.00    0.00   70.00     1  listener
+09:01:12 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:12 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:13 AM  1000     53694   22.00   50.00    0.00    0.00   72.00     1  listener
+09:01:13 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:13 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:14 AM  1000     53694   23.00   49.00    0.00    0.00   72.00     5  listener
+09:01:14 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:14 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:15 AM  1000     53694   19.00   50.00    0.00    0.00   69.00     3  listener
+09:01:15 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:15 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:16 AM  1000     53694   19.00   51.00    0.00    0.00   70.00     1  listener
+09:01:16 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:16 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:17 AM  1000     53694   18.00   54.00    0.00    0.00   72.00    14  listener
+09:01:17 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:17 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:18 AM  1000     53694   22.00   50.00    0.00    0.00   72.00    12  listener
+09:01:18 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:18 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:19 AM  1000     53694   17.00   52.00    0.00    0.00   69.00     4  listener
+09:01:19 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:19 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:20 AM  1000     53694   15.00   56.00    0.00    0.00   71.00     3  listener
+09:01:20 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:20 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:21 AM  1000     53694   23.00   47.00    0.00    0.00   70.00     3  listener
+09:01:21 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:21 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:22 AM  1000     53694   19.00   51.00    0.00    0.00   70.00     3  listener
+09:01:22 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:22 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:23 AM  1000     53694   19.00   51.00    0.00    0.00   70.00    14  listener
+09:01:23 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:23 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:24 AM  1000     53694   21.00   49.00    0.00    0.00   70.00    16  listener
+09:01:24 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:24 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:25 AM  1000     53694   19.00   51.00    0.00    0.00   70.00     3  listener
+09:01:25 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:25 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:26 AM  1000     53694   19.00   50.00    0.00    0.00   69.00     1  listener
+09:01:26 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     8  listener
+
+09:01:26 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:27 AM  1000     53694   17.00   55.00    0.00    0.00   72.00     4  listener
+09:01:27 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    15  listener
+
+09:01:27 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:28 AM  1000     53694   17.00   54.00    0.00    0.00   71.00     1  listener
+09:01:28 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    15  listener
+
+09:01:28 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:29 AM  1000     53694   16.00   52.00    0.00    0.00   68.00     4  listener
+09:01:29 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    15  listener
+
+09:01:29 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:30 AM  1000     53694   19.00   51.00    0.00    0.00   70.00     1  listener
+09:01:30 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    15  listener
+
+09:01:30 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:31 AM  1000     53694   19.00   51.00    0.00    0.00   70.00     1  listener
+09:01:31 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    15  listener
+
+09:01:31 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:32 AM  1000     53694   18.00   52.00    0.00    0.00   70.00     6  listener
+09:01:32 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    16  listener
+
+09:01:32 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:33 AM  1000     53694   20.00   50.00    0.00    0.00   70.00     3  listener
+09:01:33 AM  1000     53696    0.00    0.00    0.00    0.00    0.00    10  listener
+
+09:01:33 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:34 AM  1000     53694   20.00   49.00    0.00    0.00   69.00    15  listener
+09:01:34 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     0  listener
+
+09:01:34 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:35 AM  1000     53694   18.00   53.00    0.00    0.00   71.00     6  listener
+09:01:35 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     0  listener
+
+09:01:35 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:36 AM  1000     53694   17.00   55.00    0.00    0.00   72.00     4  listener
+09:01:36 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     0  listener
+
+09:01:36 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:37 AM  1000     53694   19.00   52.00    0.00    0.00   71.00     2  listener
+09:01:37 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     3  listener
+
+09:01:37 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:38 AM  1000     53694   20.00   51.00    0.00    0.00   71.00     8  listener
+09:01:38 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     3  listener
+
+09:01:38 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:39 AM  1000     53694   20.00   52.00    0.00    0.00   72.00     8  listener
+09:01:39 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     0  listener
+
+09:01:39 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:40 AM  1000     53694   14.00   57.00    0.00    0.00   71.00     4  listener
+09:01:40 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     6  listener
+
+09:01:40 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:41 AM  1000     53694   18.00   54.00    0.00    0.00   72.00     4  listener
+09:01:41 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     6  listener
+
+09:01:41 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:42 AM  1000     53694   14.00   58.00    0.00    0.00   72.00    10  listener
+09:01:42 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     6  listener
+
+09:01:42 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:43 AM  1000     53694   16.00   55.00    0.00    0.00   71.00     5  listener
+09:01:43 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     0  listener
+
+09:01:43 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+09:01:44 AM  1000     53694   18.00   52.00    0.00    0.00   70.00    12  listener
+09:01:44 AM  1000     53696    0.00    0.00    0.00    0.00    0.00     0  listener
+
+Average:      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+Average:     1000     53694   18.18   52.25    0.00    0.00   70.43     -  listener
+Average:     1000     53696    0.00    0.00    0.00    0.00    0.00     -  listener

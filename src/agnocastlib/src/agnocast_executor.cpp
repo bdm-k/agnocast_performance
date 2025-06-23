@@ -1,5 +1,6 @@
 #include "agnocast/agnocast_executor.hpp"
 
+#include <mutex>
 #include "agnocast/agnocast.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "sys/epoll.h"
@@ -24,29 +25,34 @@ AgnocastExecutor::~AgnocastExecutor()
 
 void AgnocastExecutor::receive_message(
   [[maybe_unused]] const uint32_t callback_info_id,  // for CARET
-  const CallbackInfo & callback_info)
+  const CallbackInfo & callback_info, std::unique_lock<std::mutex> mmap_lock)
 {
+  // TODO(bdm-k): Perform this check at compile time
+  if (!mmap_lock.owns_lock()) {
+    RCLCPP_ERROR(logger, "Agnocast internal implementation error: mmap_lock does not own the mutex");
+    close(agnocast_fd);
+    exit(EXIT_FAILURE);
+  }
+
   union ioctl_receive_msg_args receive_args = {};
   receive_args.topic_name = {callback_info.topic_name.c_str(), callback_info.topic_name.size()};
   receive_args.subscriber_id = callback_info.subscriber_id;
 
-  {
-    std::lock_guard<std::mutex> lock(mmap_mtx);
-
-    if (ioctl(agnocast_fd, AGNOCAST_RECEIVE_MSG_CMD, &receive_args) < 0) {
-      RCLCPP_ERROR(logger, "AGNOCAST_RECEIVE_MSG_CMD failed: %s", strerror(errno));
-      close(agnocast_fd);
-      exit(EXIT_FAILURE);
-    }
-
-    // Map the shared memory region with read permissions whenever a new publisher is discovered.
-    for (uint32_t i = 0; i < receive_args.ret_pub_shm_info.publisher_num; i++) {
-      const pid_t pid = receive_args.ret_pub_shm_info.publisher_pids[i];
-      const uint64_t addr = receive_args.ret_pub_shm_info.shm_addrs[i];
-      const uint64_t size = receive_args.ret_pub_shm_info.shm_sizes[i];
-      map_read_only_area(pid, addr, size);
-    }
+  if (ioctl(agnocast_fd, AGNOCAST_RECEIVE_MSG_CMD, &receive_args) < 0) {
+    RCLCPP_ERROR(logger, "AGNOCAST_RECEIVE_MSG_CMD failed: %s", strerror(errno));
+    close(agnocast_fd);
+    exit(EXIT_FAILURE);
   }
+
+  // Map the shared memory region with read permissions whenever a new publisher is discovered.
+  for (uint32_t i = 0; i < receive_args.ret_pub_shm_info.publisher_num; i++) {
+    const pid_t pid = receive_args.ret_pub_shm_info.publisher_pids[i];
+    const uint64_t addr = receive_args.ret_pub_shm_info.shm_addrs[i];
+    const uint64_t size = receive_args.ret_pub_shm_info.shm_sizes[i];
+    map_read_only_area(pid, addr, size);
+  }
+
+  mmap_lock.unlock();
 
   // older messages first
   for (int32_t i = static_cast<int32_t>(receive_args.ret_entry_num) - 1; i >= 0; i--) {
@@ -99,7 +105,8 @@ void AgnocastExecutor::prepare_epoll()
     }
 
     if (callback_info.is_transient_local) {
-      receive_message(callback_info_id, callback_info);
+      std::unique_lock<std::mutex> mmap_lock(mmap_mtx);
+      receive_message(callback_info_id, callback_info, std::move(mmap_lock));
     }
 
     callback_info.need_epoll_update = false;
@@ -157,22 +164,28 @@ void AgnocastExecutor::wait_and_handle_epoll_event(const int timeout_ms)
     callback_info = it->second;
   }
 
-  MqMsgAgnocast mq_msg = {};
+  std::unique_lock<std::mutex> mmap_lock(mmap_mtx, std::defer_lock);
 
-  // non-blocking
-  auto ret =
-    mq_receive(callback_info.mqdes, reinterpret_cast<char *>(&mq_msg), sizeof(mq_msg), nullptr);
-  if (ret < 0) {
-    if (errno != EAGAIN) {
-      RCLCPP_ERROR(logger, "mq_receive failed: %s", strerror(errno));
-      close(agnocast_fd);
-      exit(EXIT_FAILURE);
+  if (mmap_lock.try_lock()) {
+    MqMsgAgnocast mq_msg = {};
+
+    // non-blocking
+    auto ret =
+      mq_receive(callback_info.mqdes, reinterpret_cast<char *>(&mq_msg), sizeof(mq_msg), nullptr);
+    if (ret < 0) {
+      mmap_lock.unlock();
+      if (errno != EAGAIN) {
+        RCLCPP_ERROR(logger, "mq_receive failed: %s", strerror(errno));
+        close(agnocast_fd);
+        exit(EXIT_FAILURE);
+      }
+      return;
     }
 
+    receive_message(callback_info_id, callback_info, std::move(mmap_lock));
+  } else {
     return;
   }
-
-  receive_message(callback_info_id, callback_info);
 }
 
 bool AgnocastExecutor::get_next_ready_agnocast_executable(AgnocastExecutable & agnocast_executable)

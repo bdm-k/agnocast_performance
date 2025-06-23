@@ -1,5 +1,6 @@
 #pragma once
 
+#include <mutex>
 #include "agnocast/agnocast_callback_info.hpp"
 #include "rclcpp/rclcpp.hpp"
 
@@ -27,15 +28,15 @@ class AgnocastExecutor : public rclcpp::Executor
   void wait_and_handle_epoll_event(const int timeout_ms);
   bool get_next_ready_agnocast_executable(AgnocastExecutable & agnocast_executable);
   virtual void validate_callback_group(const rclcpp::CallbackGroup::SharedPtr & group) const = 0;
+  void receive_message(
+    [[maybe_unused]] const uint32_t callback_info_id,  // for CARET
+    const CallbackInfo & callback_info, std::unique_lock<std::mutex> mmap_lock);
 
 protected:
   int epoll_fd_;
   pid_t my_pid_;
   std::mutex wait_mutex_;
 
-  void receive_message(
-    [[maybe_unused]] const uint32_t callback_info_id,  // for CARET
-    const CallbackInfo & callback_info);
   void prepare_epoll();
   bool get_next_agnocast_executable(AgnocastExecutable & agnocast_executable, const int timeout_ms);
   static void execute_agnocast_executable(AgnocastExecutable & agnocast_executable);

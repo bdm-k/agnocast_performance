@@ -1,0 +1,245 @@
+Linux 6.5.0-44-generic (npc2408016) 	06/25/2025 	_x86_64_	(22 CPU)
+
+08:36:03 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:04 AM  1000      7810   17.00   26.00    0.00    0.00   43.00     4  listener
+08:36:04 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:04 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:05 AM  1000      7810   16.00   26.00    0.00    0.00   42.00     5  listener
+08:36:05 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:05 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:06 AM  1000      7810   16.00   27.00    0.00    0.00   43.00     2  listener
+08:36:06 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:06 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:07 AM  1000      7810   18.00   26.00    0.00    0.00   44.00    10  listener
+08:36:07 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:07 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:08 AM  1000      7810   18.00   25.00    0.00    0.00   43.00     3  listener
+08:36:08 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:08 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:09 AM  1000      7810   17.00   26.00    0.00    0.00   43.00     8  listener
+08:36:09 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:09 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:10 AM  1000      7810   16.00   27.00    0.00    0.00   43.00     5  listener
+08:36:10 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:10 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:11 AM  1000      7810   20.00   23.00    0.00    0.00   43.00    14  listener
+08:36:11 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:11 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:12 AM  1000      7810   15.00   29.00    0.00    0.00   44.00     3  listener
+08:36:12 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:12 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:13 AM  1000      7810   17.00   24.00    0.00    0.00   41.00     4  listener
+08:36:13 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:13 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:14 AM  1000      7810   12.00   27.00    0.00    0.00   39.00     1  listener
+08:36:14 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:14 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:15 AM  1000      7810   16.00   26.00    0.00    0.00   42.00     3  listener
+08:36:15 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:15 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:16 AM  1000      7810   13.00   29.00    0.00    0.00   42.00     3  listener
+08:36:16 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:16 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:17 AM  1000      7810   17.00   25.00    0.00    0.00   42.00     1  listener
+08:36:17 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:17 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:18 AM  1000      7810   18.00   24.00    0.00    0.00   42.00     1  listener
+08:36:18 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:18 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:19 AM  1000      7810   14.00   25.00    0.00    0.00   39.00     1  listener
+08:36:19 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:19 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:20 AM  1000      7810   16.00   25.00    0.00    0.00   41.00    11  listener
+08:36:20 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:20 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:21 AM  1000      7810   14.00   27.00    0.00    0.00   41.00    12  listener
+08:36:21 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:21 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:22 AM  1000      7810   18.00   26.00    0.00    0.00   44.00     6  listener
+08:36:22 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:22 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:23 AM  1000      7810   17.00   26.00    0.00    0.00   43.00     6  listener
+08:36:23 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:23 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:24 AM  1000      7810   14.00   27.00    0.00    0.00   41.00     6  listener
+08:36:24 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:24 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:25 AM  1000      7810   16.00   26.00    0.00    0.00   42.00     4  listener
+08:36:25 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:25 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:26 AM  1000      7810   13.00   30.00    0.00    0.00   43.00     4  listener
+08:36:26 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:26 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:27 AM  1000      7810   16.00   24.00    0.00    0.00   40.00     3  listener
+08:36:27 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:27 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:28 AM  1000      7810   17.00   22.00    0.00    0.00   39.00     0  listener
+08:36:28 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:28 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:29 AM  1000      7810   13.00   28.00    0.00    0.00   41.00     3  listener
+08:36:29 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:29 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:30 AM  1000      7810   13.00   30.00    0.00    0.00   43.00     5  listener
+08:36:30 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:30 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:31 AM  1000      7810   19.00   21.00    0.00    0.00   40.00     1  listener
+08:36:31 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:31 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:32 AM  1000      7810   14.00   27.00    0.00    0.00   41.00    13  listener
+08:36:32 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:32 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:33 AM  1000      7810   22.00   21.00    0.00    0.00   43.00     6  listener
+08:36:33 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:33 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:34 AM  1000      7810   16.00   26.00    0.00    0.00   42.00    10  listener
+08:36:34 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:34 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:35 AM  1000      7810   17.00   25.00    0.00    0.00   42.00     1  listener
+08:36:35 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:35 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:36 AM  1000      7810   16.00   25.00    0.00    0.00   41.00     1  listener
+08:36:36 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:36 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:37 AM  1000      7810   17.00   25.00    0.00    0.00   42.00     5  listener
+08:36:37 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:37 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:38 AM  1000      7810   20.00   22.00    0.00    0.00   42.00     1  listener
+08:36:38 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:38 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:39 AM  1000      7810   18.00   25.00    0.00    0.00   43.00     1  listener
+08:36:39 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:39 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:40 AM  1000      7810   18.00   21.00    0.00    0.00   39.00     5  listener
+08:36:40 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:40 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:41 AM  1000      7810   18.00   25.00    0.00    0.00   43.00    12  listener
+08:36:41 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:41 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:42 AM  1000      7810   15.00   26.00    0.00    0.00   41.00     3  listener
+08:36:42 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:42 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:43 AM  1000      7810   17.00   23.00    0.00    0.00   40.00     5  listener
+08:36:43 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:43 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:44 AM  1000      7810   18.00   24.00    0.00    0.00   42.00     3  listener
+08:36:44 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:44 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:45 AM  1000      7810   14.00   26.00    0.00    0.00   40.00    13  listener
+08:36:45 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:45 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:46 AM  1000      7810   15.00   27.00    0.00    0.00   42.00    10  listener
+08:36:46 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:46 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:47 AM  1000      7810   16.00   24.00    0.00    0.00   40.00     1  listener
+08:36:47 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:47 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:48 AM  1000      7810   15.00   27.00    0.00    0.00   42.00     3  listener
+08:36:48 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:48 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:49 AM  1000      7810   17.00   25.00    0.00    0.00   42.00    19  listener
+08:36:49 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:49 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:50 AM  1000      7810   17.00   25.00    0.00    0.00   42.00     1  listener
+08:36:50 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:50 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:51 AM  1000      7810   17.00   26.00    0.00    0.00   43.00     2  listener
+08:36:51 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:51 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:52 AM  1000      7810   14.00   26.00    0.00    0.00   40.00     3  listener
+08:36:52 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:52 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:53 AM  1000      7810   16.00   25.00    0.00    0.00   41.00     6  listener
+08:36:53 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:53 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:54 AM  1000      7810   17.00   24.00    0.00    0.00   41.00     3  listener
+08:36:54 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:54 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:55 AM  1000      7810   13.00   29.00    0.00    0.00   42.00    13  listener
+08:36:55 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:55 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:56 AM  1000      7810   15.00   27.00    0.00    0.00   42.00     4  listener
+08:36:56 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     4  listener
+
+08:36:56 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:57 AM  1000      7810   18.00   25.00    0.00    0.00   43.00     4  listener
+08:36:57 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:57 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:58 AM  1000      7810   13.00   26.00    0.00    0.00   39.00     4  listener
+08:36:58 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:58 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:36:59 AM  1000      7810   15.00   27.00    0.00    0.00   42.00     3  listener
+08:36:59 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:36:59 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:37:00 AM  1000      7810   18.00   24.00    0.00    0.00   42.00     5  listener
+08:37:00 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:37:00 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:37:01 AM  1000      7810   20.00   21.00    0.00    0.00   41.00     6  listener
+08:37:01 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:37:01 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:37:02 AM  1000      7810   18.00   22.00    0.00    0.00   40.00     6  listener
+08:37:02 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+08:37:02 AM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+08:37:03 AM  1000      7810   16.00   26.00    0.00    0.00   42.00    10  listener
+08:37:03 AM  1000      7812    0.00    0.00    0.00    0.00    0.00     0  listener
+
+Average:      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+Average:     1000      7810   16.27   25.40    0.00    0.00   41.67     -  listener
+Average:     1000      7812    0.00    0.00    0.00    0.00    0.00     -  listener

@@ -8,7 +8,8 @@
     "listener_ros2_thread_count": 0,
     "listener_agnocast_thread_count": 0,
     "timer_interval_ms": 10,
-    "listener_record_path": "1750140328867.data"
+    "listener_record_path": "1750140328867.data",
+    "talker_record_path": "1750811900968.data"
   },
   {
     "composition_pattern": 0,

@@ -430,5 +430,29 @@
     "timer_interval_ms": 10,
     "talker_path": "1750378916985.log",
     "listener_path": "1750378917988.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 2,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 2,
+    "timer_interval_ms": 10,
+    "talker_path": "1750807999502.log",
+    "listener_path": "1750808000506.log"
+  },
+  {
+    "composition_pattern": 0,
+    "num_topics": 12,
+    "use_multithreaded_executor": true,
+    "talker_ros2_thread_count": 4,
+    "talker_agnocast_thread_count": 1,
+    "listener_ros2_thread_count": 1,
+    "listener_agnocast_thread_count": 4,
+    "timer_interval_ms": 10,
+    "talker_path": "1750808162240.log",
+    "listener_path": "1750808163244.log"
   }
 ]

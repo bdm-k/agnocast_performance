@@ -1,4 +1,5 @@
 #include <chrono>  // std::chrono::*
+#include <iostream>
 #include "agnocast/agnocast.hpp"
 #include "agnocast_sample_interfaces/msg/int64.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -7,7 +8,7 @@
 #include "agnocast/agnocast_multi_threaded_executor.hpp"  // MultiThreadedAgnocastExecutor
 #include "agnocast/agnocast_single_threaded_executor.hpp"  // SingleThreadedAgnocastExecutor
 
-#define LOG_EVERY_N 1000
+#define LOG_EVERY_N_MSG 1000
 
 using namespace std::chrono_literals;
 
@@ -28,17 +29,15 @@ class MinimalPublisher : public rclcpp::Node
     message->id = count_;
     publisher_->publish(std::move(message));
 
-    if (++count_ % LOG_EVERY_N == 0) {
+    if (++count_ % LOG_EVERY_N_MSG == 0) {
       RCLCPP_INFO(this->get_logger(), "publish message: id=%ld", count_);
     }
   }
 
 public:
-  explicit MinimalPublisher()
-  : Node("minimal_publisher_" + std::to_string(g_publisher_count)), count_(0)
+  explicit MinimalPublisher(size_t topic_id)
+  : Node("minimal_publisher_" + std::to_string(g_publisher_count++)), count_(0)
   {
-    const int64_t topic_id = g_publisher_count / MAX_PUBLISHER_NUM;
-
     publisher_ =
       agnocast::create_publisher<agnocast_sample_interfaces::msg::Int64>(
         this, "/my_topic_" + std::to_string(topic_id), 10);
@@ -49,8 +48,6 @@ public:
     timer_ = this->create_wall_timer(std::chrono::milliseconds{timer_interval_ms_},
       std::bind(&MinimalPublisher::timer_callback, this));
     timer_->cancel();
-
-    g_publisher_count += 1;
   }
 
   void reset_timer()
@@ -63,6 +60,7 @@ struct LaunchParams
 {
   int starting_topic_id;
   size_t num_topics;
+  size_t num_nodes;
   bool use_multithreaded_executor;
   size_t ros2_thread_count;
   size_t agnocast_thread_count;
@@ -83,6 +81,11 @@ LaunchParams get_launch_params()
   param_node.get_parameter("num_topics", num_topics);
   params.num_topics = static_cast<size_t>(num_topics);
 
+  int num_nodes = 0;
+  param_node.declare_parameter<int>("num_nodes", 0);
+  param_node.get_parameter("num_nodes", num_nodes);
+  params.num_nodes = static_cast<size_t>(num_nodes);
+
   param_node.declare_parameter<bool>("use_multithreaded_executor", false);
   param_node.get_parameter("use_multithreaded_executor", params.use_multithreaded_executor);
 
@@ -99,22 +102,29 @@ LaunchParams get_launch_params()
   param_node.declare_parameter<int>("timer_interval_ms", 0);
   param_node.get_parameter("timer_interval_ms", params.timer_interval_ms);
 
-  RCLCPP_INFO(param_node.get_logger(), "Using starting_topic_id: %d", params.starting_topic_id);
-  RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %zu", params.num_topics);
-  RCLCPP_INFO(param_node.get_logger(), params.use_multithreaded_executor
-    ? "Using multi-threaded executor"
-    : "Using single-threaded executor");
-  if (params.use_multithreaded_executor) {
-    RCLCPP_INFO(param_node.get_logger(), "Using ros2_thread_count %zu",
-      params.ros2_thread_count == 0
-        ? std::thread::hardware_concurrency() / 2
-        : params.ros2_thread_count);
-    RCLCPP_INFO(param_node.get_logger(), "Using agnocast_thread_count %zu",
-      params.agnocast_thread_count == 0
-        ? std::thread::hardware_concurrency() / 2
-        : params.agnocast_thread_count);
+  bool quiet;
+  param_node.declare_parameter<bool>("quiet", false);
+  param_node.get_parameter("quiet", quiet);
+
+  if (!quiet) {
+    RCLCPP_INFO(param_node.get_logger(), "Using starting_topic_id: %d", params.starting_topic_id);
+    RCLCPP_INFO(param_node.get_logger(), "Using num_topics: %zu", params.num_topics);
+    RCLCPP_INFO(param_node.get_logger(), "Using num_nodes: %zu", params.num_nodes);
+    RCLCPP_INFO(param_node.get_logger(), params.use_multithreaded_executor
+      ? "Using multi-threaded executor"
+      : "Using single-threaded executor");
+    if (params.use_multithreaded_executor) {
+      RCLCPP_INFO(param_node.get_logger(), "Using ros2_thread_count %zu",
+        params.ros2_thread_count == 0
+          ? std::thread::hardware_concurrency() / 2
+          : params.ros2_thread_count);
+      RCLCPP_INFO(param_node.get_logger(), "Using agnocast_thread_count %zu",
+        params.agnocast_thread_count == 0
+          ? std::thread::hardware_concurrency() / 2
+          : params.agnocast_thread_count);
+    }
+    RCLCPP_INFO(param_node.get_logger(), "Using timer_interval_ms: %d", params.timer_interval_ms);
   }
-  RCLCPP_INFO(param_node.get_logger(), "Using timer_interval_ms: %d", params.timer_interval_ms);
 
   return params;
 }
@@ -134,6 +144,16 @@ int main(int argc, char * argv[])
     rclcpp::shutdown();
     return 1;
   }
+  if (params.num_nodes == 0) {
+    std::cerr << "The num_nodes parameter should be set\n";
+    rclcpp::shutdown();
+    return 1;
+  }
+  if (params.num_nodes > params.num_topics * MAX_PUBLISHER_NUM) {
+    std::cerr << "The maximum number of nodes per topic is " << MAX_PUBLISHER_NUM << std::endl;
+    rclcpp::shutdown();
+    return 1;
+  }
   if (params.timer_interval_ms == 0) {
     std::cerr << "The timer_interval_ms parameter should be set\n";
     rclcpp::shutdown();
@@ -148,18 +168,29 @@ int main(int argc, char * argv[])
     executor = std::make_unique<agnocast::SingleThreadedAgnocastExecutor>();
   }
 
-  g_publisher_count = params.starting_topic_id * MAX_PUBLISHER_NUM;
-
-  const size_t num_publishers = MAX_PUBLISHER_NUM * params.num_topics;
   std::vector<std::shared_ptr<MinimalPublisher>> publishers = {};
-  for (size_t i = 0; i < num_publishers; ++i) {;
-    publishers.push_back(std::make_shared<MinimalPublisher>());
-    executor->add_node(publishers[i]);
+  for (size_t i = 0; i < params.num_nodes / params.num_topics; ++i) {
+    for (
+      size_t topic_id = params.starting_topic_id;
+      topic_id < params.starting_topic_id + params.num_topics;
+      ++topic_id)
+    {
+      publishers.push_back(std::make_shared<MinimalPublisher>(topic_id));
+      executor->add_node(publishers[publishers.size() - 1]);
+    }
+  }
+  for (
+    size_t topic_id = params.starting_topic_id;
+    topic_id < params.starting_topic_id + params.num_nodes % params.num_topics;
+    ++topic_id)
+  {
+    publishers.push_back(std::make_shared<MinimalPublisher>(topic_id));
+    executor->add_node(publishers[publishers.size() - 1]);
   }
 
   // Stagger the start time of the timers
-  auto interval = 99us / num_publishers;
-  for (size_t i = 0; i < num_publishers; ++i) {
+  auto interval = 99ms / publishers.size();
+  for (size_t i = 0; i < publishers.size(); ++i) {
     publishers[i]->reset_timer();
     rclcpp::sleep_for(interval);
   }

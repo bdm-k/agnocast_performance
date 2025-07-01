@@ -21,7 +21,7 @@ def extract_aggregate_avg(file_path):
             if line.endswith('Command\n'):
                 continue
             d = parse_avg_line(line)
-            if d['cpu'] < 1.0:
+            if d['cpu'] < 0.1:
                 # Consider this line represents the daemon process
                 continue
 

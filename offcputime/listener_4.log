@@ -1,0 +1,372 @@
+Tracing off-CPU time (us) of PIDs 58710 by kernel stack for 30 secs.
+
+    finish_task_switch.isra.0
+    __cond_resched
+    kmem_cache_alloc_node
+    kmalloc_reserve
+    __alloc_skb
+    alloc_skb_with_frags
+    sock_alloc_send_pskb
+    __ip_append_data
+    ip_make_skb
+    udp_sendmsg
+    inet_sendmsg
+    bpf_trampoline_6442551893
+    inet_sendmsg
+    ___sys_sendmsg
+    __sys_sendmsg
+    __x64_sys_sendmsg
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                tev (58915)
+        5
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    exc_page_fault
+    asm_exc_page_fault
+    -                recv (58916)
+        5
+
+    finish_task_switch.isra.0
+    __cond_resched
+    mutex_lock
+    ep_send_events
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_wait
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58921)
+        6
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                tev (58915)
+        6
+
+    finish_task_switch.isra.0
+    __cond_resched
+    task_work_run
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    -                listener (58710)
+        9
+
+    finish_task_switch.isra.0
+    __cond_resched
+    mutex_lock
+    agnocast_ioctl
+    __x64_sys_ioctl
+    bpf_trampoline_6442484789
+    __x64_sys_ioctl
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58921)
+        13
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    -                listener (58921)
+        14
+
+    finish_task_switch.isra.0
+    __cond_resched
+    aa_sk_perm
+    apparmor_socket_sendmsg
+    security_socket_sendmsg
+    ____sys_sendmsg
+    ___sys_sendmsg
+    __sys_sendmsg
+    __x64_sys_sendmsg
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                tev (58915)
+        16
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                recvUC (58918)
+        17
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_apic_timer_interrupt
+    asm_sysvec_apic_timer_interrupt
+    -                listener (58710)
+        17
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58710)
+        19
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                dq.builtins (58913)
+        22
+
+    finish_task_switch.isra.0
+    __cond_resched
+    do_select
+    core_sys_select
+    do_pselect.constprop.0
+    __x64_sys_pselect6
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                recv (58916)
+        23
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                tev (58915)
+        26
+
+    finish_task_switch.isra.0
+    __cond_resched
+    __alloc_pages
+    __folio_alloc
+    vma_alloc_folio
+    do_anonymous_page
+    handle_pte_fault
+    __handle_mm_fault
+    handle_mm_fault
+    do_user_addr_fault
+    exc_page_fault
+    asm_exc_page_fault
+    -                recv (58916)
+        34
+
+    finish_task_switch.isra.0
+    schedule
+    schedule_preempt_disabled
+    __mutex_lock.constprop.0
+    __mutex_lock_slowpath
+    mutex_lock
+    agnocast_ioctl
+    __x64_sys_ioctl
+    bpf_trampoline_6442484789
+    __x64_sys_ioctl
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58921)
+        40
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                gc (58912)
+        48
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58921)
+        97
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                listener (58710)
+        124
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                recv (58916)
+        130
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    syscall_exit_to_user_mode
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                recv (58916)
+        199
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                dq.builtins (58913)
+        231
+
+    finish_task_switch.isra.0
+    schedule
+    exit_to_user_mode_loop
+    exit_to_user_mode_prepare
+    irqentry_exit_to_user_mode
+    irqentry_exit
+    sysvec_reschedule_ipi
+    asm_sysvec_reschedule_ipi
+    -                listener (58921)
+        345
+
+    finish_task_switch.isra.0
+    schedule
+    schedule_timeout
+    __skb_wait_for_more_packets
+    __skb_recv_udp
+    udp_recvmsg
+    inet_recvmsg
+    bpf_trampoline_6442551885
+    inet_recvmsg
+    ____sys_recvmsg
+    ___sys_recvmsg
+    __sys_recvmsg
+    __x64_sys_recvmsg
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                recvUC (58918)
+        23998850
+
+    finish_task_switch.isra.0
+    schedule
+    futex_wait_queue
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                gc (58912)
+        25145924
+
+    finish_task_switch.isra.0
+    schedule
+    futex_wait_queue
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                tev (58915)
+        25318873
+
+    finish_task_switch.isra.0
+    schedule
+    schedule_hrtimeout_range_clock
+    schedule_hrtimeout_range
+    do_select
+    core_sys_select
+    do_pselect.constprop.0
+    __x64_sys_pselect6
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                recv (58916)
+        25407982
+
+    finish_task_switch.isra.0
+    schedule
+    futex_wait_queue
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                dq.builtins (58913)
+        25415244
+
+    finish_task_switch.isra.0
+    schedule
+    schedule_hrtimeout_range_clock
+    schedule_hrtimeout_range
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_wait
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58921)
+        29776673
+
+    finish_task_switch.isra.0
+    schedule
+    futex_wait_queue
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    x64_sys_call
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                listener (58710)
+        29942466
+

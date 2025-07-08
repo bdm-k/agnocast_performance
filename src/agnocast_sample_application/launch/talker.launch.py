@@ -12,7 +12,7 @@ from launch_ros.actions import Node
 # 1: Publisher nodes for the same topic are placed in the same process. The same
 #    applies to subscriber nodes.
 # 2: Each process only has one node.
-composition_pattern = 0
+composition_pattern = 2
 
 # The number of nodes per topic is evenly distributed. For example, if `num_topics` is 3 and
 # `num_nodes` is 8, the first and second topics will have 3 nodes each, and the third topic will
@@ -25,14 +25,14 @@ use_multithreaded_executor = True
 # Thread count parameters take effect only when `use_multithreaded_executor` is
 # set to True. A value of 0 indicates the default, which is half the number of hardware
 # threads (i.e., std::thread::hardware_concurrency() / 2).
-ros2_thread_count = 0
-agnocast_thread_count = 0
+ros2_thread_count = 1
+agnocast_thread_count = 1
 
 timer_interval_ms = 10
 
 # Prevent the process form printing the ROS 2 parameters it received. This is useful when launching
 # many processes.
-quiet = False
+quiet = True
 ##############
 
 
